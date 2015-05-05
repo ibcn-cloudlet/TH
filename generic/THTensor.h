@@ -68,7 +68,7 @@ TH_API THTensor *THTensor_(newSelect)(THTensor *tensor, int dimension_, long sli
 TH_API THTensor *THTensor_(newNarrow)(THTensor *tensor, int dimension_, long firstIndex_, long size_);
 TH_API THTensor *THTensor_(newTranspose)(THTensor *tensor, int dimension1_, int dimension2_);
 TH_API THTensor *THTensor_(newUnfold)(THTensor *tensor, int dimension_, long size_, long step_);
-  
+
 TH_API void THTensor_(resize)(THTensor *tensor, THLongStorage *size, THLongStorage *stride);
 TH_API void THTensor_(resizeAs)(THTensor *tensor, THTensor *src);
 TH_API void THTensor_(resize1d)(THTensor *tensor, long size0_);
@@ -76,6 +76,7 @@ TH_API void THTensor_(resize2d)(THTensor *tensor, long size0_, long size1_);
 TH_API void THTensor_(resize3d)(THTensor *tensor, long size0_, long size1_, long size2_);
 TH_API void THTensor_(resize4d)(THTensor *tensor, long size0_, long size1_, long size2_, long size3_);
 TH_API void THTensor_(resize5d)(THTensor *tensor, long size0_, long size1_, long size2_, long size3_, long size4_);
+TH_API void THTensor_(resizend)(THTensor *self, int nDimension, long *size);
 
 TH_API void THTensor_(set)(THTensor *self, THTensor *src);
 TH_API void THTensor_(setStorage)(THTensor *self, THStorage *storage_, long storageOffset_, THLongStorage *size_, THLongStorage *stride_);

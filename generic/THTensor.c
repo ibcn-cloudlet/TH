@@ -224,6 +224,11 @@ THTensor *THTensor_(newUnfold)(THTensor *tensor, int dimension_, long size_, lon
 }
 
 /* Resize */
+void THTensor_(resizend)(THTensor *self, int nDimension, long *size)
+{
+  THTensor_(rawResize)(self, nDimension, size, NULL);
+}
+
 void THTensor_(resize)(THTensor *self, THLongStorage *size, THLongStorage *stride)
 {
   THArgCheck(size != NULL, 2, "invalid size");
