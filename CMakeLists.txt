@@ -102,7 +102,9 @@ SET(src
   THLogAdd.c THRandom.c THFile.c THDiskFile.c THMemoryFile.c THAtomic.c)
 
 SET(src ${src} ${hdr})
-ADD_LIBRARY(TH SHARED ${src})
+
+SET(CMAKE_POSITION_INDEPENDENT_CODE ON)
+ADD_LIBRARY(TH STATIC ${src})
 
 CHECK_C_SOURCE_RUNS("
 #include <stdatomic.h>
