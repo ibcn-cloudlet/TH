@@ -1,8 +1,5 @@
 #include "THGeneral.h"
 
-#ifndef TH_HAVE_THREAD
-#define __thread
-#endif
 /* Torch Error Handling */
 static void defaultTorchErrorHandlerFunction(const char *msg, void *data)
 {
@@ -10,8 +7,8 @@ static void defaultTorchErrorHandlerFunction(const char *msg, void *data)
   exit(-1);
 }
 
-static __thread void (*torchErrorHandlerFunction)(const char *msg, void *data) = defaultTorchErrorHandlerFunction;
-static __thread void *torchErrorHandlerData;
+static void (*torchErrorHandlerFunction)(const char *msg, void *data) = defaultTorchErrorHandlerFunction;
+static void *torchErrorHandlerData;
 
 void THError(const char *fmt, ...)
 {
@@ -46,8 +43,8 @@ static void defaultTorchArgErrorHandlerFunction(int argNumber, const char *msg, 
   exit(-1);
 }
 
-static __thread void (*torchArgErrorHandlerFunction)(int argNumber, const char *msg, void *data) = defaultTorchArgErrorHandlerFunction;
-static __thread void *torchArgErrorHandlerData;
+static  void (*torchArgErrorHandlerFunction)(int argNumber, const char *msg, void *data) = defaultTorchArgErrorHandlerFunction;
+static  void *torchArgErrorHandlerData;
 
 void THArgCheck(int condition, int argNumber, const char *msg)
 {
